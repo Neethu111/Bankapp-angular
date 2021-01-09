@@ -1,0 +1,65 @@
+<div class="container">
+    <a routerLink="/transactionhistory">Transaction History</a>
+    Balance:{{balance}}
+    
+    <div class="row">
+
+        <div class="col-6">
+
+
+            <div class="jumbotron">
+
+                <form [formGroup]="depositForm" (ngSubmit)="deposit()">
+                    <div class="form-group">
+                        <p id="de">Deposit</p>
+                        <label for="exampleInputEmail1">Username</label>
+                        <input formControlName="dpuname" type="text" class="form-control" name="dpuname" id="dpuname" aria-describedby="emailHelp" />
+                        <div *ngIf="depositForm.get('dpuname').touched && depositForm.get('dpuname').errors" class="error">Username is required</div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Amount</label>
+                        <input formControlName="dpamount" type="text" class="form-control" id="dpamount" name="dpamount" />
+                        <div *ngIf="depositForm.get('dpuname').touched && depositForm.get('dpuname').errors" class="error">Amount is required</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Deposit</button>
+                </form>
+            </div>
+
+        </div>
+        <div class="col-6">
+
+
+            <div class="jumbotron">
+
+                <form [formGroup]="withdrawForm" (ngSubmit)="withdraw()">
+                    <div class="form-group">
+                        <p id="de">Withdraw</p>
+                        <label for="exampleInputEmail1">Username</label>
+                        <input formControlName="wduname" type="text" class="form-control" id="wduname" name="wduname" aria-describedby="emailHelp" />
+                        <div *ngIf="withdrawForm.get('wduname').touched && withdrawForm.get('wduname').errors" class="error">Username is required</div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Amount</label>
+                        <input formControlName="wdamount" type="text" class="form-control" id="wdamount" name="wdamount" />
+                        <div *ngIf="withdrawForm.get('wdamount').touched && withdrawForm.get('wdamount').errors" class="error">Amount is required</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Withdraw</button>
+                    
+                </form>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</div>
